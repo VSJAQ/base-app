@@ -1,23 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Item from "./Item";
+import items from "./Items";
 
-class Pikcha extends React.Component {
+class Root extends React.Component {
+    state = {
+        items: items
+    };
+
+    removeItem = (id) => {
+        this.setState( ({items}) => ({
+            items: items.filter(el => el.id !== id)
+        }))
+    };
+
+    addItem = (id) => {
+        this.setState(({items}) => ({
+            items: items.map(el => el.id = id+1)
+        }))
+    };
+
+
     render() {
+        const {items} = this.state;
         return (
             <div className="Telo">
-                <div className="Header">
-                <img class="first" src={"https://media.wired.com/photos/5a970eb4927dc94e67685b0e/master/pass/matterhorn-802950172.jpg"} alt="Аватар" />
-                <h1>Images</h1>
-                </div>
-            <div className="Section">
-            <div className="Section-head">
-            <h2>Mountains</h2>
-            <button className="Button">delete</button>
+            <div className="Header">
+            <img className="first"
+        src={"https://media.wired.com/photos/5a970eb4927dc94e67685b0e/master/pass/matterhorn-802950172.jpg"}
+        alt="Аватар"/>
+            <h1>Images</h1>
             </div>
-            <img class="Second" src={"https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1507062474/hotel-everest-namche-nepal-mountain-lodge-MOUNTAIN1017.jpg?itok=g-S4SL9n"} alt="Картинка" />
-            </div>
+            <div className="Add-Section">
+            <button className="Add-Button" onClick={() => this.addItem}>Add</button>
         </div>
+        {items.map( el => <Item removeItem={this.removeItem} {...el}/>)}
+            </div>
         )
     }
 }
@@ -25,6 +44,6 @@ class Pikcha extends React.Component {
 
 
 ReactDOM.render(
-<Pikcha/>,
+    <Root/>,
     document.getElementById('root')
 );

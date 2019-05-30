@@ -17,10 +17,6 @@ h2 {
   text-align: center;
 }
 
-button {
-  color: #ff6363;
-}
-
 .Header {
   background: #fafafa;
   border-bottom: 1px solid #999;
@@ -67,11 +63,33 @@ button {
 
 .Button {
   background: #fafafa;
+    color: #ff6363;
   font: 28px "Century Gothic", Futura, sans-serif;
   text-align: center;
   height: 60px;
   width: 100px;
   margin-left: auto;
   border: none;
+}
 
+.Add-Section {
+    height: 50px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: center;
+
+}
+
+.Add-Button {
+    color: #87e01a;
+    background: #ffffff;
+    font: 28px "Century Gothic", Futura, sans-serif;
+    font-weight:bold;
+    text-align: center;
+    height: 60px;
+    width: 100px;
+    border: 1.5px solid #87e01a;
+    border-radius: 5%;
 }
